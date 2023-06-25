@@ -1,0 +1,51 @@
+{% extends 'catalog/base.html' %}
+{% block content %}
+    <div class="wrapper">
+        <div class="msg">
+            {% if message %}
+                {{ message }}
+            {% endif %}
+        </div>
+        <h4>
+            Форма контактов
+        </h4>
+        <form action="" method="post">
+            {% csrf_token %}
+            <div>
+                <label for="name"> Имя</label>
+                <input id="name" name="name" type="text" required>
+            </div>
+            <div>
+                <label for="phone"> Телефон</label>
+                <input id="phone" name="phone" type="phone" required>
+            </div>
+            <div>
+                <label for="message"> Сообщение</label>
+                <input id="message" name="message" type="text" required>
+            </div>
+            <button type="submit" class="btn    btn-outline-primary">Отправить</button>
+        </form>
+    </div>
+
+    <style type="text/css">
+        .wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+
+        }
+
+        .wrapper > * {
+            width: 100%;
+        }
+
+        label {
+            min-width: 100px;
+        }
+
+        form > * {
+            margin-bottom: 1rem;
+        }
+    </style>
+{% endblock %}
